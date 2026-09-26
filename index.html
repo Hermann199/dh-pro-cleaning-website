@@ -210,7 +210,7 @@
           <p><strong>Email:</strong> dhprocleaningservices@gmail.com</p>
         </div>
         <div class="card">
-          <form onsubmit="sendQuoteEmail(event)">
+          <form action="https://formspree.io/f/mnpnbroj" method="POST">
             <input name="name" placeholder="Your name" required />
             <input name="email" type="email" placeholder="Email address" required />
             <input name="phone" placeholder="Phone number" />
@@ -253,35 +253,4 @@
     </div>
   </footer>
 </body>
-<script>
-function sendQuoteEmail(event) {
-  event.preventDefault();
-
-  const form = event.target;
-  const name = form.name.value;
-  const email = form.email.value;
-  const phone = form.phone.value;
-  const service = form.service.value;
-  const location = form.location.value;
-  const message = form.message.value;
-
-  const subject = encodeURIComponent("Cleaning Quote Request - " + name);
-
-  const body = encodeURIComponent(
-    "New Cleaning Quote Request\n\n" +
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n" +
-    "Phone: " + phone + "\n" +
-    "Service: " + service + "\n" +
-    "Property Location: " + location + "\n\n" +
-    "Cleaning Needs:\n" + message
-  );
-
-  window.location.href =
-    "mailto:dhprocleaningservices@gmail.com?subject=" +
-    subject +
-    "&body=" +
-    body;
-}
-</script>
 </html>
