@@ -210,7 +210,7 @@
           <p><strong>Email:</strong> dhprocleaningservices@gmail.com</p>
         </div>
         <div class="card">
-          <form action="#" onsubmit="return false;" method="post" enctype="text/plain">
+          <form onsubmit="sendQuoteEmail(event)">
             <input name="name" placeholder="Your name" required />
             <input name="email" type="email" placeholder="Email address" required />
             <input name="phone" placeholder="Phone number" />
@@ -225,7 +225,7 @@
             </select>
             <input name="location" placeholder="Property city / ZIP code" />
             <textarea name="message" placeholder="Tell us about your cleaning needs"></textarea>
-            <button class="btn btn-primary" type="button" onclick="alert('Please call (415) 726-1024 or email dhprocleaningservices@gmail.com to request a quote.')">Request Quote</button>
+           <button class="btn btn-primary" type="submit">Request Quote</button>
           </form>
           <p style="font-size:.82rem;color:#6b7d8c;margin-bottom:0">Note: Connect this form to a real email/form service before launch. The request form must be connected to a real form service or backend before launch.</p>
         </div>
@@ -253,4 +253,35 @@
     </div>
   </footer>
 </body>
+<script>
+function sendQuoteEmail(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const phone = form.phone.value;
+  const service = form.service.value;
+  const location = form.location.value;
+  const message = form.message.value;
+
+  const subject = encodeURIComponent("Cleaning Quote Request - " + name);
+
+  const body = encodeURIComponent(
+    "New Cleaning Quote Request\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Phone: " + phone + "\n" +
+    "Service: " + service + "\n" +
+    "Property Location: " + location + "\n\n" +
+    "Cleaning Needs:\n" + message
+  );
+
+  window.location.href =
+    "mailto:dhprocleaningservices@gmail.com?subject=" +
+    subject +
+    "&body=" +
+    body;
+}
+</script>
 </html>
