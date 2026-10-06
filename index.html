@@ -32,7 +32,17 @@
     .topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     header{position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid var(--line)}
     nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
-    .logo{font-size:1.15rem;font-weight:800;letter-spacing:.3px;color:var(--navy)}
+    .logo{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.logo-img{
+  width:110px;
+  height:auto;
+  display:block;
+}
     .logo span{color:var(--blue)}
     .navlinks{display:flex;gap:22px;align-items:center;font-size:.95rem}
     .navlinks a:hover{color:var(--blue)}
@@ -95,7 +105,9 @@
   <header>
     <div class="container">
       <nav>
-        <a class="logo" href="#home" aria-label="DH Pro Cleaning Services home">DH <span>PRO CLEANING SERVICES</span></a>
+       <a class="logo" href="#home" aria-label="DH Pro Cleaning Services home">
+  <img src="dh-pro-logo.png" alt="DH Pro Cleaning Services logo" class="logo-img">
+</a>
         <div class="navlinks">
           <a href="#services">Services</a>
           <a href="#about">About</a>
